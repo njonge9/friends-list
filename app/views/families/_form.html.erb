@@ -1,0 +1,48 @@
+<%= form_with(model: family) do |form| %>
+  <% if family.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(family.errors.count, "error") %> prohibited this family from being saved:</h2>
+
+      <ul>
+        <% family.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <form>
+     <div class="mb-3">
+    <%= form.label :first_name, style: "display: block", class: "form-label" %>
+    <%= form.text_field :first_name , class: "form-control"%>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :last_name, style: "display: block", class: "form-label" %>
+    <%= form.text_field :last_name, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :email, style: "display: block", class: "form-label" %>
+    <%= form.text_field :email , class: "form-control"%>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :phone, style: "display: block", class:"form-label" %>
+    <%= form.text_field :phone, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :twitter, style: "display: block", class:"form-label" %>
+    <%= form.text_field :twitter, class: "form-control"%>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :user_id, style: "display: block", class:"form-label" %>
+    <%= form.number_field :user_id, id: :friend_user_id , class: "form-control", value: current_user.id, type: :hidden%>
+   </div>
+
+  <div class="mb-3">
+    <%= form.submit %>
+  </div>
+  </form>
+<% end %>

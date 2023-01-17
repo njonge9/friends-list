@@ -1,0 +1,29 @@
+
+
+<% if user_signed_in? %>
+<div id="families">
+
+     <% @families.each do |family| %>
+     <%if family.user == current_user%>
+      <div class=" d-grid gap-3">
+        <div class="card p-2 bg-light border mt-3">
+          <%= render family %>
+        <p >
+        <button type="button" class="btn btn-secondary"><%= link_to "Show this friend", family, class:"link-info" %></button>
+      </p>
+        </div>
+      </div>
+      <%end%>
+
+  <% end %>
+
+</div>
+
+
+  <p type="button" class="btn btn-dark d-grid gap-2 mt-3" >
+    <%= link_to "New friend", new_family_path %>
+  </p>
+<%else%>
+    <h1>Welcome to my Friends List App</h1>
+    Loggin or sign in to add friends
+<%end%>

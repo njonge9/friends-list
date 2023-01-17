@@ -1,0 +1,17 @@
+
+<div class="card w-50">
+  <div class="card-body">
+    <h5 class="card-title"><%= render @family %></h5>
+    <div>
+  <%= link_to "Edit this friend", edit_family_path(@family), class:"btn btn-primary m-1", type:"button" %>
+  <%= link_to "Back to friends", families_path , class:"btn btn-primary m-1", type:"button"%>
+
+  <%= button_to "Destroy this friend", @family, method: :delete, class: "btn btn-danger m-1"%>
+</div>
+  </div>
+</div>
+
+
+
+
+
